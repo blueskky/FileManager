@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_105"
+        android:layout_alignParentBottom="true"
+        android:background="#f8f8f8"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rb_recently"
+            style="@style/RadioButtonStyle"
+            android:drawableLeft="@drawable/selector_radio_recent"
+            android:text="最近" />
+
+        <Space
+            android:layout_width="@dimen/px_500"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/rb_category"
+            style="@style/RadioButtonStyle"
+            android:drawableLeft="@drawable/selector_radio_category"
+            android:text="分类" />
+
+        <Space
+            android:layout_width="@dimen/px_500"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <RadioButton
+            android:id="@+id/rb_cloud"
+            style="@style/RadioButtonStyle"
+            android:drawableLeft="@drawable/selector_radio"
+            android:text="云空间"
+            android:visibility="gone" />
+
+
+    </RadioGroup>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/radioGroup" />
+
+
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.whty.eschoolbag.filemanager">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+
+        android:name=".APPAplication"
+        android:allowBackup="true"
+        android:appComponentFactory=""
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:appComponentFactory">
+        <activity android:name=".ui.preview.FilePreviewActivity"></activity>
+        <!-- <meta-data -->
+        <!-- android:name="design_width_in_dp" -->
+        <!-- android:value="480" /> -->
+        <!-- <meta-data -->
+        <!-- android:name="design_height_in_dp" -->
+        <!-- android:value="270" /> -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TestActivity" />
+        <activity
+            android:name=".ui.category.CleanUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.category.SearchActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.category.ImgCategoryActivity" />
+        <activity android:name=".ui.category.ImgExploreListActivity" />
+        <activity android:name=".ui.category.ExploreListActivity" />
+        <activity
+            android:name=".ui.category.FileExploreActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".ui.preview.ImagePreviewActivity" />
+        <activity android:name=".ui.preview.VideoViewActivity" />
+        <activity android:name=".ui.preview.AudioPlayActivity" />
+
+        <activity android:name=".ui.preview.SimplePlayActivity" />
+    </application>
+
+</manifest>

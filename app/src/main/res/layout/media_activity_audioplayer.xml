@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/audio_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_back" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_top">
+
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/audio_play_selector" />
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="100dp"-->
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:id="@+id/layout_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btn_play"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <com.whty.eschoolbag.filemanager.widgetview.Anticlockwise
+                android:textSize="19sp"
+                android:id="@+id/id_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#f3f3f3" />
+
+        </LinearLayout>
+        <!--android:layout_marginTop="120dp"-->
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layout_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_play"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="96dp"
+                android:layout_height="40dp"
+                android:background="@drawable/audio_recore_finish_off"
+                android:text="确认"
+                android:textColor="@drawable/audio_recorder_text_selector"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_again"
+                android:layout_width="96dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/audio_recore_finish_off"
+                android:text="重录"
+                android:textColor="@drawable/audio_recorder_text_selector"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

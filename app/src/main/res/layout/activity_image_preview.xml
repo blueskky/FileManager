@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:animateLayoutChanges="true"
+    android:id="@+id/root"
+    tools:context=".ui.preview.ImagePreviewActivity">
+
+    <com.whty.eschoolbag.filemanager.widgetview.ViewPagerFixed
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_header"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_80"
+        android:background="@drawable/photo_preview_header_bg"
+        android:orientation="horizontal">
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <ImageView
+            android:id="@+id/iv_detail"
+            android:layout_width="@dimen/px_60"
+            android:layout_height="@dimen/px_60"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_60"
+            android:src="@drawable/iv_detail" />
+
+
+        <ImageView
+            android:id="@+id/iv_collection"
+            android:layout_width="@dimen/px_60"
+            android:layout_height="@dimen/px_60"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/px_60"
+            android:layout_toLeftOf="@+id/iv_detail"
+            android:src="@drawable/iv_collection" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:paddingBottom="@dimen/px_10"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="@dimen/px_10"
+            android:layout_marginLeft="@dimen/px_10"
+            android:scaleType="centerCrop"
+            android:id="@+id/iv_img"
+            android:layout_width="@dimen/px_100"
+            android:layout_height="@dimen/px_100" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/px_30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="nananan"
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="dafda"
+                android:layout_marginTop="@dimen/px_4"
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <View
+        android:layout_marginLeft="@dimen/px_130"
+        android:background="@color/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"/>
+
+</LinearLayout>

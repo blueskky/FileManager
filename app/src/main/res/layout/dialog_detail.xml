@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_620"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_dialog"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_30"
+            android:layout_marginBottom="@dimen/px_20"
+            android:text="详情"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/split_line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_20"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="文件名称:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="1eeewqewqe.png"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_10"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="文件类型:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="video/mp4"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_10"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="文件大小:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="12m"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_10"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="时长:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_duriation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="1eeewqewqe.png"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_10"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="修改时间:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="2019.3.21"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/px_50"
+            android:paddingTop="@dimen/px_10"
+            android:paddingRight="@dimen/px_30"
+            android:paddingBottom="@dimen/px_10">
+
+            <TextView
+                android:layout_width="@dimen/px_140"
+                android:layout_height="wrap_content"
+                android:text="路径:"
+                android:textColor="#ff8d8d8d" />
+
+            <TextView
+                android:id="@+id/tv_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_15"
+                android:text="1eeewqewqe.png"
+                android:textColor="#555555" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="@dimen/px_210"
+            android:layout_height="@dimen/px_70"
+            android:layout_marginTop="@dimen/px_40"
+            android:layout_marginBottom="@dimen/px_30"
+            android:background="@drawable/shape_confirm_button"
+            android:text="确定"
+            android:textColor="#ffffffff" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
