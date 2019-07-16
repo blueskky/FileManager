@@ -5,38 +5,54 @@
 
 
     <LinearLayout
-        android:gravity="center_horizontal"
+        android:layout_width="@dimen/px_300"
+        android:layout_height="wrap_content"
         android:background="@drawable/shape_dialog"
-        android:orientation="vertical"
-        android:layout_width="@dimen/px_620"
-        android:layout_height="wrap_content">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rel_favourit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_90">
 
 
-        <TextView
-            android:id="@+id/tv_favourit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/px_40"
-            android:paddingBottom="@dimen/px_40"
-            android:text="收藏" />
+            <TextView
+                android:id="@+id/tv_favourit"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收藏"
+                android:textColor="@color/text_color_555555"
+                android:textSize="@dimen/px_30" />
+
+        </RelativeLayout>
+
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/split_line" />
 
+        <RelativeLayout
+            android:id="@+id/rel_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_90">
 
-        <TextView
-            android:id="@+id/tv_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/px_40"
-            android:paddingBottom="@dimen/px_40"
-            android:text="详情" />
+
+            <TextView
+                android:id="@+id/tv_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="详情"
+                android:textColor="@color/text_color_555555"
+                android:textSize="@dimen/px_30" />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

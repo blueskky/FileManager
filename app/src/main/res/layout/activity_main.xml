@@ -41,6 +41,7 @@
             android:visibility="gone" />
 
         <RadioButton
+
             android:id="@+id/rb_cloud"
             style="@style/RadioButtonStyle"
             android:drawableLeft="@drawable/selector_radio"

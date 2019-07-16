@@ -26,7 +26,7 @@ public class RecentAdapter extends BaseQuickAdapter<HeadItem, BaseViewHolder> {
 
 
     private OnItemFoldListener onItemFoldListener;
-    private int imgFoldCount = 16;
+    private int imgFoldCount = 18;
     private int fileFoldCount = 3;
 
 
@@ -54,10 +54,10 @@ public class RecentAdapter extends BaseQuickAdapter<HeadItem, BaseViewHolder> {
         if (item.getMediaType().equals(String.valueOf(MEDIA_TYPE_IMAGE))) {
             String formatStr = String.format("图片%d项", item.getList().size());
             helper.setText(R.id.tv_name, formatStr);
-            subRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 8));
+            subRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 9));
 
             if (subRecyclerView.getItemDecorationCount() == 0) {
-                subRecyclerView.addItemDecoration(new GridSpacingItemDecoration(8, 30, true));
+                subRecyclerView.addItemDecoration(new GridSpacingItemDecoration(9, 20, true));
             }
 
             RecentImgAdapter recentImgAdapter = new RecentImgAdapter();

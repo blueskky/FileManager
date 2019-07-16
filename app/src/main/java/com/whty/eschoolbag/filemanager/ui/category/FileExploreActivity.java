@@ -105,7 +105,7 @@ public class FileExploreActivity extends AppCompatActivity implements LoadPresen
         bundle.putSerializable("data", list);
         bundle.putString("type", type);
         exploreFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.container, exploreFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, exploreFragment).commitAllowingStateLoss ();
     }
 
 

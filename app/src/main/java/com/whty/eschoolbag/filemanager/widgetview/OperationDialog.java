@@ -37,8 +37,8 @@ public class OperationDialog extends Dialog implements View.OnClickListener {
 
         TextView tvFavourit = (TextView) findViewById(R.id.tv_favourit);
 
-        conentView.findViewById(R.id.tv_favourit).setOnClickListener(this);
-        conentView.findViewById(R.id.tv_detail).setOnClickListener(this);
+        conentView.findViewById(R.id.rel_favourit).setOnClickListener(this);
+        conentView.findViewById(R.id.rel_detail).setOnClickListener(this);
 
         if(favorite){
             tvFavourit.setText("取消收藏");
@@ -50,13 +50,13 @@ public class OperationDialog extends Dialog implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_favourit:
+            case R.id.rel_favourit:
                 if (clickListener != null) {
                     clickListener.onFavouritClick();
                 }
                 break;
 
-            case R.id.tv_detail:
+            case R.id.rel_detail:
                 if (clickListener != null) {
                     clickListener.onDetailClick();
                 }

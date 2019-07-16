@@ -26,8 +26,7 @@ public class FileCategoryHelper {
     private static String THEME_EXT = "mtz";
     private static String[] ZIP_EXTS = new String[]{"zip", "rar"};
 
-    public static HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<FileCategory,
-            FilenameExtFilter>();
+    public static HashMap<FileCategory, FilenameExtFilter> filters = new HashMap<FileCategory, FilenameExtFilter>();
     private FileCategory mCategory;
     private Context mContext;
 
@@ -72,8 +71,7 @@ public class FileCategoryHelper {
             return null;
         }
 
-        String[] columns = new String[]{FileColumns._ID, FileColumns.DATA, FileColumns.SIZE,
-                FileColumns.DATE_MODIFIED};
+        String[] columns = new String[]{FileColumns._ID, FileColumns.DATA, FileColumns.SIZE, FileColumns.DATE_MODIFIED};
 
         return mContext.getContentResolver().query(uri, columns, selection, null, sortOrder);
     }
@@ -191,27 +189,32 @@ public class FileCategoryHelper {
 
 
     private CategoryInfo refreshMediaCategory(FileCategory fc, Uri uri) {
-        CategoryInfo fileInfo = new CategoryInfo();
-        String[] columns = new String[]{FileColumns.DATA, FileColumns.SIZE};
-        Cursor c = mContext.getContentResolver().query(uri, columns, buildSelectionByCategory(fc)
-                , null, null);
-        if (c == null) {
-            Log.e(LOG_TAG, "fail to query uri:" + uri);
-            return fileInfo;
-        }
 
-        while (c.moveToNext()) {
-            String filePath = c.getString(c.getColumnIndex(FileColumns.DATA));
-            long fileSize = c.getLong(c.getColumnIndex(FileColumns.SIZE));
-            File file = new File(filePath);
-            if (file != null && file.exists()&&file.length()>0) {
-                fileInfo.count += 1;
-                fileInfo.size += fileSize;
+        try {
+            CategoryInfo fileInfo = new CategoryInfo();
+            String[] columns = new String[]{FileColumns.DATA, FileColumns.SIZE};
+            Cursor c = mContext.getContentResolver().query(uri, columns, buildSelectionByCategory(fc), null, null);
+            if (c == null) {
+                Log.e(LOG_TAG, "fail to query uri:" + uri);
+                return fileInfo;
             }
+
+            while (c.moveToNext()) {
+                String filePath = c.getString(c.getColumnIndex(FileColumns.DATA));
+                long fileSize = c.getLong(c.getColumnIndex(FileColumns.SIZE));
+                File file = new File(filePath);
+                if (file != null && file.exists() && file.length() > 0) {
+                    fileInfo.count += 1;
+                    fileInfo.size += fileSize;
+                }
+            }
+
+            c.close();
+            return fileInfo;
+        } catch (Exception e) {
+            return new CategoryInfo();
         }
 
-        c.close();
-        return fileInfo;
     }
 
 

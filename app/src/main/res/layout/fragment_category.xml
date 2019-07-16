@@ -73,7 +73,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:textSize="@dimen/px_26"
+                        android:textSize="@dimen/px_23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="本地空间: "
@@ -91,7 +91,7 @@
 
 
                     <TextView
-                        android:textSize="@dimen/px_26"
+                        android:textSize="@dimen/px_23"
                         android:id="@+id/tv_internal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -144,12 +144,12 @@
                 android:paddingRight="@dimen/px_70">
 
                 <TextView
-                    android:textSize="@dimen/px_25"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/px_20"
                     android:text="快捷访问："
-                    android:textColor="@color/color_text1" />
+                    android:textColor="@color/color_text1"
+                    android:textSize="@dimen/px_23" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -173,7 +173,7 @@
                             android:src="@drawable/selector_screenshot" />
 
                         <TextView
-                            android:textSize="@dimen/px_20"
+                            android:textSize="@dimen/px_25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -196,7 +196,7 @@
                             android:src="@drawable/selector_camera" />
 
                         <TextView
-                            android:textSize="@dimen/px_20"
+                            android:textSize="@dimen/px_25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -219,7 +219,7 @@
                             android:src="@drawable/selector_class" />
 
                         <TextView
-                            android:textSize="@dimen/px_20"
+                            android:textSize="@dimen/px_25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -242,7 +242,7 @@
                             android:src="@drawable/selector_favourite" />
 
                         <TextView
-                            android:textSize="@dimen/px_20"
+                            android:textSize="@dimen/px_25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -265,7 +265,7 @@
                             android:src="@drawable/selector_down" />
 
                         <TextView
-                            android:textSize="@dimen/px_20"
+                            android:textSize="@dimen/px_25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -311,6 +311,7 @@
                             android:src="@drawable/selector_img" />
 
                         <TextView
+                            android:textSize="@dimen/px_21"
                             android:id="@+id/tv_image"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -343,6 +344,7 @@
                             android:src="@drawable/selector_video" />
 
                         <TextView
+                            android:textSize="@dimen/px_21"
                             android:id="@+id/tv_video"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -375,6 +377,7 @@
                             android:src="@drawable/selector_music" />
 
                         <TextView
+                            android:textSize="@dimen/px_21"
                             android:id="@+id/tv_audio"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -408,6 +411,7 @@
                             android:src="@drawable/selector_word" />
 
                         <TextView
+                            android:textSize="@dimen/px_21"
                             android:id="@+id/tv_doc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

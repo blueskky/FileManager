@@ -13,6 +13,8 @@
         android:padding="@dimen/px_20">
 
         <TextView
+            android:textSize="@dimen/px_24"
+            android:textColor="@color/text_color_5e5e5e"
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,6 +64,8 @@
             android:visibility="gone">
 
             <TextView
+                android:textSize="@dimen/px_28"
+                android:textColor="@color/text_color_6f6f6f"
                 android:id="@+id/tv_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

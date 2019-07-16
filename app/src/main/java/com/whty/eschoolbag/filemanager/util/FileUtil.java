@@ -493,12 +493,9 @@ public class FileUtil {
         intent.setAction(Intent.ACTION_VIEW);
         intent.setAction(Intent.ACTION_DEFAULT);
         intent.setClassName("cn.wps.moffice_eng", "cn.wps.moffice.documentmanager" + ".PreStartActivity2");
-        //        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileprovider", new
-        //        File(filePath));
 
         Uri uri;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            // "net.csdn.blog.ruancoder.fileprovider"即是在清单文件中配置的authorities
             uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".fileprovider", new File(filePath));
             // 给目标应用一个临时授权
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

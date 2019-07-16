@@ -34,7 +34,7 @@ public class ScanPresenter {
     public interface ScanListener {
         void scanProgress(String progress);
 
-        void scanResult(ArrayList<MultiItemEntity> list,long totalSize);
+        void scanResult(ArrayList<MultiItemEntity> list, long totalSize);
     }
 
     private ScanListener scanListener;
@@ -51,7 +51,7 @@ public class ScanPresenter {
         scanList.add(new ScanCate(new File(rootPath), "临时文件", FileTools.TEMP_DIR, true));
         scanList.add(new ScanCate(new File(rootPath), "日志文件", FileTools.LOG_FILES, true));
 
-//        scanList.add(new ScanCate(new File(rootPath), "大文件", FileTools.LARGE_FILES, false));
+        //        scanList.add(new ScanCate(new File(rootPath), "大文件", FileTools.LARGE_FILES, false));
         scanList.add(new ScanCate(new File(rootPath), "安装包", FileTools.APK, false));
         scanList.add(new ScanCate(new File(homework), "作业", FileTools.CUSTOM, false));
         scanList.add(new ScanCate(new File(interactiveroom), "互动课堂", FileTools.CUSTOM, false));
@@ -81,10 +81,10 @@ public class ScanPresenter {
                     FileList subResult = new FileList(scanCate.getName(), scanCate.isSelect());
                     File[] files = scanCate.getRoot().listFiles();
 
-                    if(files!=null&&files.length>0){
+                    if (files != null && files.length > 0) {
                         ArrayList<File> arrayList = new ArrayList<>();
                         for (File file : files) {
-                            if(file.exists()&&file.length()>0){
+                            if (file.exists() && file.length() > 0) {
                                 publishProgress(file.getPath());
                                 arrayList.add(file);
                             }
@@ -98,7 +98,7 @@ public class ScanPresenter {
                     FileList subResult = new FileList(scanCate.getName(), scanCate.isSelect());
                     deepFirstSearch(scanCate.getRoot(), subResult.getList(), scanCate.getType());
 
-                    if(subResult.getList().size()>0){
+                    if (subResult.getList().size() > 0) {
                         result.add(subResult);
                     }
                 }
@@ -114,36 +114,35 @@ public class ScanPresenter {
 
             ArrayList<MultiItemEntity> list = new ArrayList<>();
             CacheCate cacheCate = new CacheCate("扫描结果", lists.size());
-            long totalSize=0;
+            long totalSize = 0;
             for (FileList files : lists) {
                 cacheCate.addSubItem(files);
-                totalSize+=files.getStorageSize();
+                totalSize += files.getStorageSize();
             }
             cacheCate.setStorageSize(totalSize);
 
             list.add(cacheCate);
 
-           if(scanListener!=null){
-               scanListener.scanResult(list,totalSize);
-           }
+            if (scanListener != null) {
+                scanListener.scanResult(list, totalSize);
+            }
         }
 
         @Override
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
             if (values.length > 0) {
-                if(scanListener!=null){
+                if (scanListener != null) {
                     scanListener.scanProgress(values[0]);
                 }
             }
         }
 
 
-
-
         /**
          * 深度优先搜索，通过filter筛选出目标文件，将目标文件存入array
-         *          递归调用本方法，搜索所有目录
+         * 递归调用本方法，搜索所有目录
+         *
          * @param dir
          * @param array
          * @param type
@@ -151,22 +150,26 @@ public class ScanPresenter {
         private void deepFirstSearch(File dir, List array, int type) {
             File[] allFiles = dir.listFiles();
             File[] targeFiles = dir.listFiles(new FilterByType(type));
-            if (!(targeFiles == null))
+
+            if (targeFiles != null) {
                 for (File f : targeFiles) {
-                    if(f.exists()&&f.length()>0){
+                    if (f.exists() && f.length() > 0) {
                         array.add(f);
 
                     }
                 }
-            for (File file : allFiles) {
-                publishProgress(file.getPath());
-                if (file.isDirectory()) {
-                    deepFirstSearch(file, array, type);
+            }
+
+            if (allFiles != null) {
+                for (File file : allFiles) {
+                    publishProgress(file.getPath());
+                    if (file.isDirectory()) {
+                        deepFirstSearch(file, array, type);
+                    }
                 }
             }
         }
     }
-
 
 
 }

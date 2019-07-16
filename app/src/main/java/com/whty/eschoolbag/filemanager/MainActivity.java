@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -56,15 +57,35 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         ButterKnife.bind(this);
         mContext = this;
 
-//        requestPermission();
+        //        requestPermission();
+
+        initRadioGroup();
 
         checkPermission();
 
-        if(BuildConfig.DEBUG){
+        if (BuildConfig.DEBUG) {
             getDpi();
         }
 
 
+    }
+
+    private void initRadioGroup() {
+        //定义底部标签图片大小
+        Drawable drawable1 = getResources().getDrawable(R.drawable.selector_radio_recent);
+        drawable1.setBounds(0, 0, 48, 48);//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
+        rbRecently.setCompoundDrawables(drawable1, null, null, null);
+
+        //定义底部标签图片大小
+        Drawable drawable2 = getResources().getDrawable(R.drawable.selector_radio_category);
+        drawable2.setBounds(0, 0, 48, 48);//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
+        rbCategory.setCompoundDrawables(drawable2, null, null, null);
+
+
+        //定义底部标签图片大小
+        Drawable drawable3 = getResources().getDrawable(R.drawable.selector_radio);
+        drawable3.setBounds(0, 0, 48, 48);//第一0是距左右边距离，第二0是距上下边距离，第三69长度,第四宽度
+        rbCloud.setCompoundDrawables(drawable3, null, null, null);
     }
 
 
@@ -85,30 +106,30 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
-//    private void requestPermission() {
-//        final RxPermissions rxPermissions = new RxPermissions(this);
-//
-//        rxPermissions
-//                .requestEachCombined(Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                        Manifest.permission.READ_EXTERNAL_STORAGE)
-//                .subscribe(permission -> { // will emit 1 Permission object
-//                    if (permission.granted) {
-//                        // All permissions are granted !
-//                        setViewPager();
-//                        Log.d("lhq", "granted ");
-//                    } else if (permission.shouldShowRequestPermissionRationale) {
-//                        // At least one denied permission without ask never again
-//                        Log.d("lhq", "denied ");
-//                        finish();
-//                    } else {
-//                        // At least one denied permission with ask never again
-//                        // Need to go to the settings
-//                        Log.d("lhq", "denied  no ask=" + permission.name);
-//
-//                        showDialog();
-//                    }
-//                });
-//    }
+    //    private void requestPermission() {
+    //        final RxPermissions rxPermissions = new RxPermissions(this);
+    //
+    //        rxPermissions
+    //                .requestEachCombined(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    //                        Manifest.permission.READ_EXTERNAL_STORAGE)
+    //                .subscribe(permission -> { // will emit 1 Permission object
+    //                    if (permission.granted) {
+    //                        // All permissions are granted !
+    //                        setViewPager();
+    //                        Log.d("lhq", "granted ");
+    //                    } else if (permission.shouldShowRequestPermissionRationale) {
+    //                        // At least one denied permission without ask never again
+    //                        Log.d("lhq", "denied ");
+    //                        finish();
+    //                    } else {
+    //                        // At least one denied permission with ask never again
+    //                        // Need to go to the settings
+    //                        Log.d("lhq", "denied  no ask=" + permission.name);
+    //
+    //                        showDialog();
+    //                    }
+    //                });
+    //    }
 
     private void showDialog() {
         AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
@@ -133,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         list = new ArrayList<>();
         list.add(new RecentlyFragment());
         list.add(new CategoryFragment());
-//        list.add(new CloudFragment());
+        //        list.add(new CloudFragment());
 
         viewpager.setAdapter(new PagerAdapter(getSupportFragmentManager()));
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -219,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         int screenHeight = metrics.heightPixels;
 
 
-        Log.d("lhq","width="+screenWidth+"  height-"+screenHeight);
+        Log.d("lhq", "width=" + screenWidth + "  height-" + screenHeight);
 
         //  屏幕上字体显示的缩放因子，一般与density值相同，除非在程序运行中，用户根据喜好调整了显示字体的大小时，会有微小的增加。
         float scaledDensity = metrics.scaledDensity;
@@ -233,19 +254,18 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         // 每英寸的像素点数，屏幕密度的另一种表示。densityDpi = density * 160.
         float desityDpi = metrics.densityDpi;
 
-        int min = Math.min(screenWidth,screenHeight);
+        int min = Math.min(screenWidth, screenHeight);
 
         double dpi = min / (metrics.densityDpi / 160.0);
 
         double physicsScreenSize = getPhysicsScreenSize(this);
 
-        Log.d("lhq","density="+density+"\nwidth="+screenWidth+"\n heigiht="+screenHeight+"\nxdpi="+xdpi
-                +"\nydpi="+ydpi+"\n desityDpi="+desityDpi+"\n dpi="+dpi+"\n physices ="+physicsScreenSize);
+        Log.d("lhq", "density=" + density + "\nwidth=" + screenWidth + "\n heigiht=" + screenHeight + "\nxdpi=" + xdpi + "\nydpi=" + ydpi + "\n " +
+                "desityDpi=" + desityDpi + "\n dpi=" + dpi + "\n physices =" + physicsScreenSize);
     }
 
 
-
-    public static double getPhysicsScreenSize(Context context){
+    public static double getPhysicsScreenSize(Context context) {
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Point point = new Point();
         manager.getDefaultDisplay().getRealSize(point);

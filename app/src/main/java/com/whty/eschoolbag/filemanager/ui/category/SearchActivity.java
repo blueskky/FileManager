@@ -155,14 +155,14 @@ public class SearchActivity extends AppCompatActivity implements LoadPresenter.O
         llHistory.setVisibility(View.GONE);
 
         if (exploreFragment != null && exploreFragment.isAdded()) {
-            getSupportFragmentManager().beginTransaction().remove(exploreFragment).commit();
+            getSupportFragmentManager().beginTransaction().remove(exploreFragment).commitAllowingStateLoss();
         }
         exploreFragment = new FileExploreFragment();
         Bundle bundle = new Bundle();
         bundle.putSerializable("data", list);
         bundle.putString("type", FileExploreFragment.TYPE_SEARCH);
         exploreFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.container, exploreFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, exploreFragment).commitAllowingStateLoss();
     }
 
 

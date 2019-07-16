@@ -43,8 +43,10 @@ public class FileExploreAdapter extends BaseQuickAdapter<FileInfo, BaseViewHolde
         if(file.isFile()){
             helper.setText(R.id.tv_size, Util.convertStorage(file.length()));
             helper.setGone(R.id.tv_size,true);
+            helper.setGone(R.id.iv_arror,false);
         }else{
             helper.setGone(R.id.tv_size,false);
+            helper.setGone(R.id.iv_arror,true);
         }
 
 //        helper.setText(R.id.tv_count,item.getCount()+"");

@@ -7,17 +7,14 @@ android {
 //        applicationId "com.whty.eschoolbag.teachingmaterial"
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 271190703
-        versionName "2.7.1.190703"
+        versionCode 271190705
+        versionName "2.7.1.190705"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         packagingOptions {
             exclude 'META-INF/androidx'
         }
 
-//        ndk {
-//            abiFilters "armeabi", "armeabi-v7a", "x86"   //, "mips"
-//        }
     }
 
     signingConfigs {

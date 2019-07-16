@@ -47,15 +47,18 @@ public class ImagePreviewActivity extends AppCompatActivity {
     LinearLayout llHeader;
     @BindView(R.id.root)
     RelativeLayout root;
-    private List<FileInfo> data;
+    private static List<FileInfo> data;
     FavoriteDatabaseHelper helper = new FavoriteDatabaseHelper(this, null);
     private MyPagerAdapter pagerAdapter;
 
-    public static void start(Context context, List<FileInfo> data, int position) {
+    public static void start(Context context,int position) {
         Intent intent = new Intent(context, ImagePreviewActivity.class);
-        intent.putExtra("data", ((Serializable) data));
         intent.putExtra("index", position);
         context.startActivity(intent);
+    }
+
+    public static void setData(List<FileInfo> mdata) {
+        data=mdata;
     }
 
 
@@ -69,7 +72,6 @@ public class ImagePreviewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        data = (List<FileInfo>) getIntent().getSerializableExtra("data");
         int index = getIntent().getIntExtra("index", 0);
 
         pagerAdapter = new MyPagerAdapter(data);
